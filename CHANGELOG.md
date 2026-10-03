@@ -1,3 +1,7 @@
+## 0.1.1
+
+* Updated hero image. No breaking change.
+
 ## 0.1.0
 
 * Initial release.
