@@ -1,7 +1,7 @@
 name: rich_multimedia
 description: A model-agnostic carousel and full-screen viewer for mixed media — images, videos, audio, and PDFs — with screenshot protection and a built-in download flow.
 version: 0.1.0
-homepage: https://github.com/azarr-technologies/rich_multimedia
+homepage: https://www.azarrapps.com/our-products/rich-multimedia
 repository: https://github.com/azarr-technologies/rich_multimedia
 
 environment:
