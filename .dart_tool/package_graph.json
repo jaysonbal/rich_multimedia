@@ -5,7 +5,7 @@
   "packages": [
     {
       "name": "rich_multimedia",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "dependencies": [
         "cached_network_image",
         "crypto",
