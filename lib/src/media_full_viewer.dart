@@ -105,48 +105,47 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
       _videoPositions[index] = Duration.zero;
       _videoDurations[index] = Duration.zero;
 
-      _videoControllers[index] =
-          VideoPlayerController.networkUrl(Uri.parse(mediaUrl))
-            ..setLooping(true)
-            ..initialize().then((_) {
-              if (mounted) {
-                setState(() {
-                  _videoInitialized[index] = true;
-                  _videoDurations[index] =
-                      _videoControllers[index]!.value.duration;
-                });
+      _videoControllers[index] = VideoPlayerController.networkUrl(
+          Uri.parse(mediaUrl))
+        ..setLooping(true)
+        ..initialize().then((_) {
+          if (mounted) {
+            setState(() {
+              _videoInitialized[index] = true;
+              _videoDurations[index] = _videoControllers[index]!.value.duration;
+            });
 
-                _videoControllers[index]!.addListener(() {
-                  if (_videoControllers[index]!.value.isInitialized &&
-                      mounted) {
-                    setState(() {
-                      _videoPositions[index] =
-                          _videoControllers[index]?.value.position ??
-                              Duration.zero;
-                      _videoIsPlaying[index] =
-                          _videoControllers[index]?.value.isPlaying ?? false;
-                    });
-                  }
-                });
-
-                if (index == _currentIndex) {
-                  _videoControllers[index]?.play();
-                  setState(() {
-                    _videoIsPlaying[index] = true;
-                  });
-                }
-              }
-            }).catchError((error) {
-              if (kDebugMode) {
-                debugPrint(
-                    'rich_multimedia: error initializing video at index $index: $error');
-              }
-              if (mounted) {
+            _videoControllers[index]!.addListener(() {
+              if (_videoControllers[index]!.value.isInitialized && mounted) {
                 setState(() {
-                  _videoInitialized[index] = false;
+                  _videoPositions[index] =
+                      _videoControllers[index]?.value.position ?? Duration.zero;
+                  _videoIsPlaying[index] =
+                      _videoControllers[index]?.value.isPlaying ?? false;
                 });
               }
             });
+
+            if (index == _currentIndex) {
+              _videoControllers[index]?.play();
+              setState(() {
+                _videoIsPlaying[index] = true;
+              });
+            }
+          }
+        }).catchError((error) {
+          if (kDebugMode) {
+            debugPrint(
+              'rich_multimedia: error initializing '
+              'video at index $index: $error',
+            );
+          }
+          if (mounted) {
+            setState(() {
+              _videoInitialized[index] = false;
+            });
+          }
+        });
     }
   }
 
@@ -254,11 +253,13 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
           context: context,
         );
       case MediaKind.image:
-        return ImageItemWidget(mediaUrl: mediaUrl, onTap: _resetHideControlsTimer);
+        return ImageItemWidget(
+            mediaUrl: mediaUrl, onTap: _resetHideControlsTimer);
       case MediaKind.audio:
         return InMemoryAudioPlayer(url: mediaUrl);
       case MediaKind.pdf:
-        return InMemoryPdfViewer(url: mediaUrl, loadingColor: widget.accentColor);
+        return InMemoryPdfViewer(
+            url: mediaUrl, loadingColor: widget.accentColor);
       case MediaKind.document:
         return FilePlaceholder(url: mediaUrl);
     }
@@ -332,7 +333,11 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white, size: 28),
+                      icon: const Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 28,
+                      ),
                       onPressed: () => Navigator.of(context).pop(),
                     ),
                   ),
@@ -372,8 +377,7 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
                     right: 0,
                     child: Center(
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
+                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                         decoration: BoxDecoration(
                           color: Colors.black38,
                           borderRadius: BorderRadius.circular(20),
@@ -475,12 +479,10 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
                                       ),
                                     ),
                                     child: Slider(
-                                      value: currentVideoPosition
-                                          .inMilliseconds
+                                      value: currentVideoPosition.inMilliseconds
                                           .toDouble(),
                                       min: 0,
-                                      max: currentVideoDuration
-                                                  .inMilliseconds >
+                                      max: currentVideoDuration.inMilliseconds >
                                               0
                                           ? currentVideoDuration.inMilliseconds
                                               .toDouble()
@@ -490,15 +492,16 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
                                   ),
                                   const SizedBox(height: 8),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 8),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(8, 0, 8, 0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           _formatVideoDuration(
-                                              currentVideoPosition),
+                                            currentVideoPosition,
+                                          ),
                                           style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 14,
@@ -507,7 +510,8 @@ class _MediaFullViewerState extends State<MediaFullViewer> {
                                         ),
                                         Text(
                                           _formatVideoDuration(
-                                              currentVideoDuration),
+                                            currentVideoDuration,
+                                          ),
                                           style: const TextStyle(
                                             color: Colors.white54,
                                             fontSize: 14,

@@ -1,8 +1,17 @@
 name: rich_multimedia
 description: A model-agnostic carousel and full-screen viewer for mixed media — images, videos, audio, and PDFs — with screenshot protection and a built-in download flow.
-version: 0.1.2
+version: 0.1.3
 homepage: https://www.azarrapps.com/our-products/rich-multimedia
 repository: https://github.com/jaysonbal/rich_multimedia
+
+# Shown in the carousel on the package's pub.dev listing page - these are
+# packaged with the source (not runtime assets, so they don't need a
+# `flutter: assets:` entry below; consuming apps never bundle them).
+screenshots:
+  - description: 'A single tappable media tile — taps open the full-screen viewer.'
+    path: assets/screenshot-attachments.png
+  - description: 'A swipeable carousel with a footer (dots, counter, caption, download button).'
+    path: assets/screenshot-portfolio.png
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -14,12 +23,12 @@ dependencies:
   cached_network_image: '>=3.3.0 <4.0.0'
   crypto: '>=3.0.3 <4.0.0'
   dio: '>=5.4.0 <6.0.0'
-  fluttertoast: '>=8.2.4 <9.0.0'
+  fluttertoast: '>=8.2.4 <10.0.0'
   flutter_pdfview: '>=1.3.2 <2.0.0'
   gal: '>=2.3.0 <3.0.0'
-  http: '>=1.1.0 <2.0.0'
-  just_audio: '>=0.9.36 <0.10.0'
-  no_screenshot: '>=2.0.0 <3.0.0'
+  http: '>=0.13.0 <2.0.0'
+  just_audio: '>=0.9.36 <0.11.0'
+  no_screenshot: '>=1.1.0 <3.0.0'
   open_filex: '>=4.4.0 <5.0.0'
   path_provider: '>=2.1.0 <3.0.0'
   shimmer: '>=3.0.0 <4.0.0'

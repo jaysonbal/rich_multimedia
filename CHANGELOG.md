@@ -1,3 +1,8 @@
+## 0.1.3
+
+* Updated pub dev screenshots. No breaking change.
+* Improve code formatting for better readability.
+
 ## 0.1.2
 
 * Updated hero image. No breaking change.

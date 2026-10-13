@@ -31,8 +31,9 @@ class _NetworkVideoPreviewState extends State<NetworkVideoPreview> {
 
   Future<void> _initializeVideo() async {
     try {
-      _controller =
-          VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
+      _controller = VideoPlayerController.networkUrl(
+        Uri.parse(widget.videoUrl),
+      );
       await _controller.initialize();
 
       _controller.addListener(() {
@@ -125,8 +126,7 @@ class _NetworkVideoPreviewState extends State<NetworkVideoPreview> {
                 bottom: 4,
                 right: 4,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding: const EdgeInsets.fromLTRB(6, 2, 6, 2),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(4),

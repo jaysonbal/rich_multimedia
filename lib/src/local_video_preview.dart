@@ -119,8 +119,7 @@ class _LocalVideoPreviewState extends State<LocalVideoPreview> {
                 bottom: 4,
                 right: 4,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding: const EdgeInsets.fromLTRB(6, 2, 6, 2),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(4),

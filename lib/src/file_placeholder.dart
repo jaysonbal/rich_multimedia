@@ -29,11 +29,18 @@ class FilePlaceholder extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 50, color: iconColor),
+          Icon(
+            icon,
+            size: 50,
+            color: iconColor,
+          ),
           const SizedBox(height: 10),
           Text(
             fileName,
-            style: TextStyle(color: textColor, fontSize: 12),
+            style: TextStyle(
+              color: textColor,
+              fontSize: 12,
+            ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),

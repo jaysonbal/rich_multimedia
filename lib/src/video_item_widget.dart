@@ -60,7 +60,10 @@ class VideoItemWidget extends StatelessWidget {
                   const SizedBox(height: 20),
                   Text(
                     loadingLabel,
-                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),

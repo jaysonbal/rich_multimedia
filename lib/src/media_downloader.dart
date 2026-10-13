@@ -42,7 +42,14 @@ class MediaDownloader {
     }
 
     if (context.mounted) {
-      _showProgressSheet(context, fileName, url, galleryAlbum, doneColor, errorColor);
+      _showProgressSheet(
+        context,
+        fileName,
+        url,
+        galleryAlbum,
+        doneColor,
+        errorColor,
+      );
     }
   }
 
@@ -129,9 +136,15 @@ class _DownloadSheetState extends State<_DownloadSheet> {
         setState(() => _status = 'Saving to gallery...');
         try {
           if (_isImage) {
-            await Gal.putImage(filePath, album: widget.galleryAlbum);
+            await Gal.putImage(
+              filePath,
+              album: widget.galleryAlbum,
+            );
           } else {
-            await Gal.putVideo(filePath, album: widget.galleryAlbum);
+            await Gal.putVideo(
+              filePath,
+              album: widget.galleryAlbum,
+            );
           }
           setState(() {
             _done = true;
@@ -259,10 +272,19 @@ class _DownloadSheetState extends State<_DownloadSheet> {
           if (_error) ...[
             Row(
               children: [
-                Icon(Icons.error_outline_rounded, color: widget.errorColor, size: 20),
+                Icon(
+                  Icons.error_outline_rounded,
+                  color: widget.errorColor,
+                  size: 20,
+                ),
                 const SizedBox(width: 8),
-                Text(_status,
-                    style: TextStyle(color: widget.errorColor, fontSize: 14)),
+                Text(
+                  _status,
+                  style: TextStyle(
+                    color: widget.errorColor,
+                    fontSize: 14,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 16),
@@ -305,7 +327,11 @@ class _SheetButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 16, color: filled ? Colors.black : Colors.white70),
+            Icon(
+              icon,
+              size: 16,
+              color: filled ? Colors.black : Colors.white70,
+            ),
             const SizedBox(width: 6),
             Text(
               label,

@@ -10,7 +10,10 @@ class ExampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'rich_multimedia example',
-      theme: ThemeData(colorSchemeSeed: Colors.deepOrange, useMaterial3: true),
+      theme: ThemeData(
+        colorSchemeSeed: Colors.deepOrange,
+        useMaterial3: true,
+      ),
       home: const ExampleHome(),
     );
   }
@@ -38,7 +41,10 @@ class ExampleHome extends StatelessWidget {
         children: [
           const Text(
             'MediaCarousel',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+            ),
           ),
           const SizedBox(height: 8),
           MediaCarousel(
@@ -55,7 +61,10 @@ class ExampleHome extends StatelessWidget {
           const SizedBox(height: 24),
           const Text(
             'MultiMediaItem (single tile)',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+            ),
           ),
           const SizedBox(height: 8),
           SizedBox(
@@ -73,7 +82,10 @@ class ExampleHome extends StatelessWidget {
           const SizedBox(height: 24),
           const Text(
             'Locked download (gated-content example)',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+            ),
           ),
           const SizedBox(height: 8),
           MediaCarousel(

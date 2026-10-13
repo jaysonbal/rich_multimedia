@@ -147,7 +147,7 @@ class _InMemoryAudioPlayerState extends State<InMemoryAudioPlayer> {
                 SizedBox(height: 8 * scale),
                 if (widget.hideControls == false) ...[
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                    padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
                     child: SizedBox(
                       height: 24 * scale,
                       child: SliderTheme(
